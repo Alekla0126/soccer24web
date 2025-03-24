@@ -1,32 +1,41 @@
-Massively by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+⚽ Soccer24 – Official Website
 
+Welcome to the official website of Soccer24 — your ultimate companion for live football scores, match updates, team stats, and more.
 
-This is Massively, a text-heavy, article-oriented design built around a huge background
-image (with a new parallax implementation I'm testing) and scroll effects (powered by
-Scrollex). A *slight* departure from all the one-pagers I've been doing lately, but one
-that fulfills a few user requests and makes use of some new techniques I've been wanting
-to try out. Enjoy it :)
+This site is designed to showcase the Soccer24 mobile app, available on both Android and iOS platforms.
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+🌐 Live Site
 
-(* = not included)
+👉 Visit the website: https://alekla0126.github.io/soccer24
+(Update this link if hosted elsewhere)
 
-AJ
-aj@lkn.io | @ajlkn
+📲 Get the App
 
+Google Play: https://play.google.com/store/apps/details?id=com.alekla0126.soccer24
+App Store: https://apps.apple.com/mx/app/soccer24-social-media/id6737065907?l=en-GB
+💡 About Soccer24
 
-Credits:
+Soccer24 is a mobile app that delivers:
 
-	Demo Images:
-		Unsplash (unsplash.com)
+Real-time football scores from global leagues
+Detailed match statistics
+League standings and schedules
+Personalized notifications and team tracking
+📁 What's in this Repo?
 
-	Icons:
-		Font Awesome (fontawesome.io)
+This repository contains the static HTML/CSS/JS website for Soccer24.
+It serves as a landing page to promote the mobile app and redirect users to the app stores.
 
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+📷 Preview
+
+Add screenshots or a GIF preview of the website here
+
+👨‍💻 Developed by
+
+Alejandro – Founder of The Alchemist Code
+GitHub: https://github.com/alekla0126
+
+📬 Contact
+
+Questions, feedback, or partnerships?
+Email: [your email here]
