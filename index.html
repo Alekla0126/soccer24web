@@ -1,200 +1,134 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Replaces the HTML5UP "Massively" template that stood here.
+
+  Two things were wrong with it. It carried no way to install the app at all,
+  while lib/constants/constants.dart points the app's own "website", support
+  and feedback links here — so anyone arriving from inside the app found a
+  page with stock photography and no download button. And it led with "expert
+  predictions", which in football communities reads as tipster content and is
+  one step from betting; the App Store listing avoids that language for the
+  same reason.
+
+  Self-contained on purpose: no framework, no webfont, one image. A landing
+  page whose job is a single tap should not need 400KB of CSS to do it.
 -->
-<html>
-
+<html lang="en">
 <head>
-	<title>Soccer24 - Live Scores, Predictions, and Stats</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
+<meta charset="utf-8">
+<title>Soccer24 — live football scores on your lock screen</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Live football scores from 1,100+ competitions, on your lock screen. Goal alerts for the teams you follow, line-ups, tables and stats. Free.">
+<meta name="apple-itunes-app" content="app-id=6737065907">
+<meta property="og:title" content="Soccer24 — live football scores on your lock screen">
+<meta property="og:description" content="1,100+ competitions. Goal alerts for the teams you follow. Free.">
+<meta property="og:image" content="images/app-icon.png">
+<link rel="icon" href="images/app-icon.png">
+<style>
+  :root{
+    --ground:#0A120E; --surface:#101B15; --ink:#E9F2EB; --muted:#8fa398;
+    --line:#223228; --pitch:#35D07E;
+  }
+  @media (prefers-color-scheme:light){
+    :root{ --ground:#F1F5F1; --surface:#fff; --ink:#10201A; --muted:#566a60;
+           --line:#D6DED8; --pitch:#0E8F4C; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink); line-height:1.55;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px 72px}
+  header{display:flex;align-items:center;gap:12px;padding:28px 0}
+  header img{width:40px;height:40px;border-radius:10px}
+  header b{font-size:19px;letter-spacing:-.02em}
+  header b span{color:var(--pitch)}
+  h1{font-size:clamp(30px,6vw,46px);line-height:1.12;letter-spacing:-.03em;margin:28px 0 14px}
+  .lede{font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin:0 0 30px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:12px;
+    background:var(--pitch);color:#04130B;font-weight:700;text-decoration:none;font-size:16px;
+  }
+  .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line);font-weight:600}
+  .note{font-size:14px;color:var(--muted);margin:0 0 42px}
+  ul.features{list-style:none;padding:0;margin:0 0 42px;display:grid;gap:18px}
+  ul.features li{padding-left:26px;position:relative}
+  ul.features li::before{
+    content:"";position:absolute;left:0;top:9px;width:9px;height:9px;
+    border-radius:50%;background:var(--pitch);
+  }
+  ul.features b{display:block}
+  ul.features span{color:var(--muted)}
+  footer{border-top:1px solid var(--line);padding-top:22px;font-size:14px;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none;margin-right:16px;border-bottom:1px solid var(--line)}
+  footer a:hover{color:var(--ink)}
+</style>
 </head>
+<body>
+<div class="wrap">
 
-<body class="is-preload">
+  <header>
+    <img src="images/app-icon.png" alt="">
+    <b>Soccer<span>24</span></b>
+  </header>
 
-	<!-- Wrapper -->
-	<div id="wrapper" class="fade-in">
+  <h1>The score, without unlocking your phone.</h1>
+  <p class="lede">
+    Live football from 1,100+ competitions — including the divisions the big
+    apps skip. Goal alerts for the teams you pick, line-ups, tables and stats.
+  </p>
 
-		<!-- Intro -->
-		<div id="intro">
-			<h1>Welcome to<br />
-				Soccer24</h1>
-			<p>Your ultimate soccer companion: Live scores, expert predictions, and in-depth stats. Stay ahead of the
-				game!</p>
-			<ul class="actions">
-				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Discover More</a></li>
-			</ul>
-		</div>
+  <!--
+    One button, chosen for the visitor.
 
-		<!-- Header -->
-		<header id="header">
-			<a href="index.html" class="logo">Soccer24</a>
-		</header>
+    The page this replaced showed an App Store button and a Google Play button
+    to everyone, so roughly half of every visit was offered the wrong store.
+    Both links stay in the markup for anyone the sniff misses, and for crawlers.
+    The ct / referrer parameters are what make the channel measurable — see
+    soccer24/tools/growth_links.py.
+  -->
+  <div class="cta" id="cta">
+    <a class="btn" id="ios"
+       href="https://apps.apple.com/app/id6737065907?ct=site&amp;mt=8">Download on the App Store</a>
+    <a class="btn" id="android"
+       href="https://play.google.com/store/apps/details?id=com.alekla0126.soccer24&amp;referrer=utm_source%3Ddirect%26utm_medium%3Dweb%26utm_campaign%3Dsite">Get it on Google Play</a>
+  </div>
+  <p class="note">Free, with ads. A subscription removes them — nothing above is behind it.</p>
 
-		<!-- Nav -->
-		<nav id="nav">
-			<ul class="links">
-				<li class="active"><a href="index.html">Home</a></li>
-				<li><a href="privacy.html">Privacy Policy</a></li>
-				<li><a href="terms.html">Terms and Conditions</a></li>
-				<li><a href="delete.html">Delete Account</a></li>
-			</ul>
-			<ul class="icons">
-				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-			</ul>
-		</nav>
+  <ul class="features">
+    <li><b>On the lock screen</b><span>Live Activities and widgets keep the match in front of you while it is on.</span></li>
+    <li><b>1,100+ competitions</b><span>From the Champions League down to the divisions nobody else carries.</span></li>
+    <li><b>Told the moment it matters</b><span>Goals, kick-off and full time, for the teams you follow, in your language.</span></li>
+    <li><b>What the crowd is calling</b><span>Read what other fans predict before kick-off, then post your own.</span></li>
+    <li><b>18 languages</b><span>The whole app, not just the store page.</span></li>
+  </ul>
 
+  <footer>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="delete.html">Delete account</a>
+    <a href="generic.html">Support</a>
+  </footer>
 
-		<!-- Main -->
-		<div id="main">
+</div>
 
-			<!-- Featured Post -->
-			<article class="post featured">
-				<header class="major">
-					<h2><a href="#">Get Live Scores &<br />
-							In-Depth Match Stats</a></h2>
-					<p>Track your favorite teams, get real-time updates, and explore detailed stats for every match.</p>
-				</header>
-				<a href="#" class="image main"><img src="images/soccer.jpg" alt="Soccer match" /></a>
-				<ul class="actions special">
-					<li><a href="#" class="button large">Learn More</a></li>
-				</ul>
-			</article>
-
-			<!-- Posts -->
-			<section class="posts">
-				<article>
-					<header>
-						<h2><a href="#">Upcoming Matches<br />
-								and Predictions</a></h2>
-					</header>
-					<a href="#" class="image fit"><img src="images/match.jpg" alt="Upcoming match" /></a>
-					<p>Get accurate predictions and betting tips for upcoming matches, straight from experts.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button">Read More</a></li>
-					</ul>
-				</article>
-				<article>
-					<header>
-						<h2><a href="#">Detailed Team<br />
-								Stats & Analysis</a></h2>
-					</header>
-					<a href="#" class="image fit"><img src="images/team-stats.jpg" alt="Team statistics" /></a>
-					<p>Analyze team performance with comprehensive stats and in-depth analysis.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button">Explore Stats</a></li>
-					</ul>
-				</article>
-				<article>
-					<header>
-						<h2><a href="#">Live Match Updates<br />
-								Anywhere, Anytime</a></h2>
-					</header>
-					<a href="#" class="image fit"><img src="images/live-update.jpg" alt="Live match updates" /></a>
-					<p>Never miss a moment with real-time updates and live commentary.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button">Stay Updated</a></li>
-					</ul>
-				</article>
-			</section>
-
-			<!-- Footer -->
-			<footer>
-				<div class="pagination">
-					<a href="#" class="page active">1</a>
-					<a href="#" class="page">2</a>
-					<a href="#" class="page">3</a>
-					<span class="extra">&hellip;</span>
-					<a href="#" class="page">8</a>
-					<a href="#" class="page">9</a>
-					<a href="#" class="page">10</a>
-					<a href="#" class="next">Next</a>
-				</div>
-			</footer>
-
-		</div>
-
-		<!-- Footer -->
-		<footer id="footer">
-			<section>
-				<form method="post" action="#">
-					<div class="fields">
-						<div class="field">
-							<label for="name">Name</label>
-							<input type="text" name="name" id="name" />
-						</div>
-						<div class="field">
-							<label for="email">Email</label>
-							<input type="text" name="email" id="email" />
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="3"></textarea>
-						</div>
-					</div>
-					<ul class="actions">
-						<li><input type="submit" value="Send Message" /></li>
-					</ul>
-				</form>
-			</section>
-			<section class="split contact">
-				<section class="alt">
-					<h3>Address</h3>
-					<p>Alejandro Lagunes<br />
-						Unit 82a, James Carter Road, Mildenhall,<br />
-						Bury St. Edmunds, England,
-						IP28 7DE</p>
-				</section>
-				<section>
-					<h3>Phone</h3>
-					<p><a href="#">+52(222) 1085511</a></p>
-				</section>
-				<section>
-					<h3>Email</h3>
-					<p><a href="mailto:alekla0126@gmail.com">alekla0126@gmail.com</a></p>
-				</section>
-				<section>
-					<h3>Social</h3>
-					<ul class="icons alt">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a>
-						</li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a>
-						</li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					</ul>
-				</section>
-			</section>
-		</footer>
-
-		<!-- Copyright -->
-		<div id="copyright">
-			<ul>
-				<li>&copy; Soccer24</li>
-				<li>Design: <a href="https://thealchemistcode.dev/">Alejandro Lagunes LTD.</a></li>
-			</ul>
-		</div>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+<script>
+// Show the store the visitor can actually use, and keep the other reachable.
+(function () {
+  var ua = navigator.userAgent || '';
+  var ios = /iPad|iPhone|iPod/.test(ua) ||
+            // iPadOS 13+ reports itself as a Mac with a touchscreen.
+            (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/.test(ua);
+  if (!ios && !android) return;          // desktop keeps both buttons
+  var hide = document.getElementById(ios ? 'android' : 'ios');
+  var keep = document.getElementById(ios ? 'ios' : 'android');
+  hide.classList.add('alt');
+  hide.textContent = ios ? 'Android version' : 'iPhone version';
+  document.getElementById('cta').insertBefore(keep, hide);
+})();
+</script>
 </body>
-
 </html>
