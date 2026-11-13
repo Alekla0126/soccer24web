@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.alekla0126.soccer24",
+      "sha256_cert_fingerprints": [
+        "32:8B:C3:90:9B:E4:64:C0:5C:6D:9A:26:5B:3A:D0:12:61:3F:AB:C6:8D:45:48:71:73:E0:FA:DC:3C:6D:16:5D"
+      ]
+    }
+  }
+]

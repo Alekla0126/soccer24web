@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soccer24 — Live Match</title>
+<meta name="description" content="Open this match in Soccer24: live scores, stats and notifications.">
+<style>
+  :root { color-scheme: dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .ball { font-size: 56px; }
+  h1 { font-size: 28px; margin: 16px 0 8px; letter-spacing: 0.5px; }
+  p { color: #9da7b3; max-width: 420px; margin-bottom: 28px; line-height: 1.5; }
+  .btn {
+    display: block;
+    width: min(320px, 80vw);
+    padding: 16px;
+    margin: 10px auto;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: #00bfa5;
+  }
+  .btn.secondary { background: #21262d; border: 1px solid #30363d; }
+</style>
+</head>
+<body>
+  <div class="ball">⚽</div>
+  <h1>Soccer24</h1>
+  <p id="tagline">Live scores, stats and goal alerts — follow this match in the app.</p>
+  <a class="btn" id="open-app" href="#">Open in the app</a>
+  <a class="btn secondary" id="get-app" href="#">Get Soccer24</a>
+<script>
+  var matchId = (location.pathname.match(/\/match\/(\d+)/) || [])[1] || '';
+  var ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  var storeUrl = ios
+    ? 'https://apps.apple.com/app/id6737065907'
+    : 'https://play.google.com/store/apps/details?id=com.alekla0126.soccer24';
+
+  // Reaching this page at all means the universal link did not fire, so the
+  // app is almost certainly not installed: the store is the useful button.
+  document.getElementById('get-app').href = storeUrl;
+  document.getElementById('open-app').href = matchId
+    ? 'https://soccer24.website/match/' + matchId
+    : storeUrl;
+
+  var es = (navigator.language || '').indexOf('es') === 0;
+  if (es) {
+    document.getElementById('tagline').textContent =
+      'Marcadores en vivo, estadísticas y alertas de gol — sigue este partido en la app.';
+    document.getElementById('open-app').textContent = 'Abrir en la app';
+    document.getElementById('get-app').textContent = 'Descargar Soccer24';
+    document.title = 'Soccer24 — Partido en vivo';
+  }
+
+  // Small delay so the page is never a dead end: straight to the store.
+  setTimeout(function () { window.location.href = storeUrl; }, 2500);
+</script>
+</body>
+</html>
